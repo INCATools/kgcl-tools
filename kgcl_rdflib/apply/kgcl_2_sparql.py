@@ -64,7 +64,7 @@ def get_representation(node_term: str) -> Optional[str]:
     if node_term is None:
         logging.warning(f"None value for representation")
         return None
-    elif node_term.startswith("<http"):
+    elif node_term.startswith("<http") or node_term.startswith("http"):
         return "uri"
     elif ":" in node_term and CURIE_PATTERN.match(node_term):
         return "curie"
